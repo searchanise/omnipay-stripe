@@ -97,8 +97,14 @@ class ListInvoicesRequest extends AbstractRequest
     {
         $data = array();
 
-        if ($this->getCreated()) {
-            $data['created'] = $this->getCreated();
+        if ($created = $this->getCreated()) {
+            if (is_array($created)) {
+                foreach ($created as $k => $v) {
+                    $data["created[$k]"] = $v;
+                }
+            } else {
+                $data['created'] = $created;
+            }
         }
         if ($this->getLimit()) {
             $data['limit'] = $this->getLimit();
