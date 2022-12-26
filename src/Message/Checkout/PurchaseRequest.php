@@ -145,6 +145,35 @@ class PurchaseRequest extends AbstractRequest
         return $this->getParameter('client_reference_id');
     }
 
+    public function setCustomerEmail($value)
+    {
+        return $this->setParameter('customer_email', $value);
+    }
+
+    public function getCustomerEmail()
+    {
+        return $this->getParameter('customer_email');
+    }
+
+    public function setCustomer($value)
+    {
+        return $this->setParameter('customer', $value);
+    }
+
+    public function getCustomer()
+    {
+        return $this->getParameter('customer');
+    }
+
+    public function setMetadata($value)
+    {
+        return $this->setParameter('metadata', $value);
+    }
+
+    public function getMetadata()
+    {
+        return $this->getParameter('metadata');
+    }
 
     public function getData()
     {
@@ -153,6 +182,9 @@ class PurchaseRequest extends AbstractRequest
             'cancel_url' => $this->getCancelUrl(),
             'payment_method_types' => $this->getPaymentMethodTypes(),
             'mode' => $this->getMode(),
+            'customer_email' => $this->getCustomerEmail(),
+            'customer' => $this->getCustomer(),
+            'metadata' => $this->getMetadata(),
             'line_items' => $this->getLineItems()
         );
 
