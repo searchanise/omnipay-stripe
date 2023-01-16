@@ -36,6 +36,27 @@ class UpdateSubscriptionRequest extends AbstractRequest
     }
 
     /**
+     * Get the proration behavior
+     *
+     * @return string
+     */
+    public function getProrationBehavior()
+    {
+        return $this->getParameter('proration_behavior');
+    }
+
+    /**
+     * Set the proration behavior
+     *
+     * @param $value
+     * @return \Omnipay\Common\Message\AbstractRequest|UpdateSubscriptionRequest
+     */
+    public function setProrationBehavior($value)
+    {
+        return $this->setParameter('proration_behavior', $value);
+    }
+
+    /**
      * @deprecated
      */
     public function getPlanId()
@@ -88,6 +109,10 @@ class UpdateSubscriptionRequest extends AbstractRequest
 
         if ($this->getMetadata()) {
             $data['metadata'] = $this->getMetadata();
+        }
+
+        if ($this->getProrationBehavior()) {
+            $data['proration_behavior'] = $this->getProrationBehavior();
         }
 
         return $data;
