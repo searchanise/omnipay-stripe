@@ -249,7 +249,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $body
         );
 
-        return $this->createResponse($httpResponse->getBody()->getContents(), $httpResponse->getHeaders());
+        return $this->createResponse((string) $httpResponse->getBody(), $httpResponse->getHeaders());
     }
 
     /**
