@@ -435,7 +435,7 @@ class Gateway extends AbstractGateway
      * @param array $parameters
      * @return \Omnipay\Stripe\Message\UpdatePaymentIntentRequest
      */
-    public function updatePaymentIntent(array $parameters = array())
+    public function updatePaymentIntent(array $parameters = [])
     {
         return $this->createRequest('\Omnipay\Stripe\Message\UpdatePaymentIntentRequest', $parameters);
     }
