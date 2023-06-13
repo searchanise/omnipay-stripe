@@ -34,6 +34,60 @@ class ListInvoicesRequest extends AbstractRequest
     /**
      * @return mixed
      */
+    public function getCustomer()
+    {
+        return $this->getParameter('customer');
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return
+     */
+    public function setCustomer($value)
+    {
+        return $this->setParameter('customer', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->getParameter('status');
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return
+     */
+    public function setStatus($value)
+    {
+        return $this->setParameter('status', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubscription()
+    {
+        return $this->getParameter('subscription');
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return
+     */
+    public function setSubscription($value)
+    {
+        return $this->setParameter('subscription', $value);
+    }
+
+    /**
+     * @return mixed
+     */
     public function getLimit()
     {
         return $this->getParameter('limit');
@@ -95,7 +149,7 @@ class ListInvoicesRequest extends AbstractRequest
 
     public function getData()
     {
-        $data = array();
+        $data = [];
 
         if ($created = $this->getCreated()) {
             if (is_array($created)) {
@@ -106,6 +160,7 @@ class ListInvoicesRequest extends AbstractRequest
                 $data['created'] = $created;
             }
         }
+
         if ($this->getLimit()) {
             $data['limit'] = $this->getLimit();
         }
@@ -116,6 +171,18 @@ class ListInvoicesRequest extends AbstractRequest
 
         if ($this->getStartingAfter()) {
             $data['starting_after'] = $this->getStartingAfter();
+        }
+
+        if ($this->getSubscription()) {
+            $data['subscription'] = $this->getSubscription();
+        }
+
+        if ($this->getCustomer()) {
+            $data['customer'] = $this->getCustomer();
+        }
+
+        if ($this->getStatus()) {
+            $data['status'] = $this->getStatus();
         }
 
         return $data;
