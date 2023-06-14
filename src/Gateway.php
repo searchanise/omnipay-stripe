@@ -439,4 +439,26 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Stripe\Message\UpdatePaymentIntentRequest', $parameters);
     }
+
+    /**
+     * Fetch Payment Intent
+     *
+     * @param array $parameters
+     * @return \Omnipay\Stripe\Message\FetchPaymentIntentRequest
+     */
+    public function fetchPaymentIntent(array $parameters = [])
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\FetchPaymentIntentRequest', $parameters);
+    }
+
+    /**
+     * Fetch Balance History
+     *
+     * @param array $parameters
+     * @return \Omnipay\Stripe\Message\fetchBalanceTransactionRequest
+     */
+    public function fetchBalanceTransactionRequest(array $parameters = [])
+    {
+        return $this->createRequest('\Omnipay\Stripe\Message\FetchBalanceTransactionRequest', $parameters);
+    }
 }
